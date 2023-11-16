@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<body>
+<div class="container" style="padding-top: 75px;">
+  <form class="form-inline my-2 my-lg-0">
+    <input type="search" (ngModelChange)="searchEtudiants(key.value)" #key="ngModel" ngModel
+    name="key" id="searchName" class="form-control mr-sm-2" placeholder="Chercher par Groupe..." required>
+  </form>
+</div>
+<div class="container" id="main-container">
+  <h1>Affiché Tous les absences :</h1>
+  <div class="row">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Heure</th>
+          <th scope="col">Etudiant</th>
+          <th scope="col">Matiere</th>
+          <th scope="col">justification</th>
+          <th scope="col">justifie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let absence of absences">
+          <td>{{absence.date}}</td>
+          <td>{{absence.heure}}</td>
+          <td>{{absence.etudiant.firstname}}  {{absence.etudiant.lastname}}</td>
+          <td>{{absence.matiere.nom}}</td>
+          <td>{{absence.justification}}</td>
+          <td >{{ absence.justifie }}</td>
+         </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+<footer>
+  <div class="copyright">
+    <p>Copyright © Raouf</p>
+  </div>
+</footer>
+</body>
